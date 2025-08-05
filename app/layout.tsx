@@ -1,4 +1,4 @@
-import "/app/css/style.css"; // ✅ Corrigé
+import "../css/style.css";
 
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
@@ -15,22 +15,22 @@ const inter = Inter({
 const nacelle = localFont({
   src: [
     {
-      path: "/fonts/nacelle-regular.woff2",
+      path: "./fonts/nacelle-regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "/fonts/nacelle-italic.woff2",
+      path: "./fonts/nacelle-italic.woff2",
       weight: "400",
       style: "italic",
     },
     {
-      path: "/fonts/nacelle-semibold.woff2",
+      path: "./fonts/nacelle-semibold.woff2",
       weight: "600",
       style: "normal",
     },
     {
-      path: "/fonts/nacelle-semibolditalic.woff2",
+      path: "./fonts/nacelle-semibolditalic.woff2",
       weight: "600",
       style: "italic",
     },
@@ -51,7 +51,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body className={`${inter.variable} ${nacelle.variable} bg-white font-inter text-base text-gray-900 antialiased`}>
+      <body
+        className={`${inter.variable} ${nacelle.variable} bg-white font-inter text-base text-gray-900 antialiased`}
+      >
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           <Header />
           {children}
