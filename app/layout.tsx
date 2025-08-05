@@ -44,7 +44,13 @@ export const metadata = {
   description: "Plateforme intelligente pour propriétaires, locataires et agences.",
 };
 
-export default function RootLayout({
+mport { ReactNode } from "react";
+
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   children,
 }: {
   children: React.ReactNode;
