@@ -1,12 +1,17 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 
-interface LayoutProps {
-  children: ReactNode;
-}
+export const metadata = {
+  title: "LocaFlow - Simplifiez votre gestion locative",
+  description: "Plateforme intelligente pour propriétaires, locataires et agences.",
+};
 
-export default function DefaultLayout({ children }: LayoutProps) {
+export default function Layout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <main className="relative flex grow flex-col bg-white text-gray-900">
       <Header />
