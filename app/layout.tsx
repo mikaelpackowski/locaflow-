@@ -1,25 +1,42 @@
-// app/layout.tsx
+import "./css/additional-styles/style.css";
 
-import "./css/style.css";
-import { ReactNode } from "react";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
+import type { ReactNode } from "react";
 
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
 
+// Police Inter de Google Fonts
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
 });
 
+// Police locale Nacelle (dans public/fonts/)
 const nacelle = localFont({
   src: [
-    { path: "./fonts/nacelle-regular.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/nacelle-italic.woff2", weight: "400", style: "italic" },
-    { path: "./fonts/nacelle-semibold.woff2", weight: "600", style: "normal" },
-    { path: "./fonts/nacelle-semibolditalic.woff2", weight: "600", style: "italic" },
+    {
+      path: "/fonts/nacelle-regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "/fonts/nacelle-italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "/fonts/nacelle-semibold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "/fonts/nacelle-semibolditalic.woff2",
+      weight: "600",
+      style: "italic",
+    },
   ],
   variable: "--font-nacelle",
   display: "swap",
@@ -30,7 +47,6 @@ export const metadata = {
   description: "Plateforme intelligente pour propriétaires, locataires et agences.",
 };
 
-// ✅ LA SIGNATURE QUI FAIT TOUTE LA DIFFÉRENCE
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
