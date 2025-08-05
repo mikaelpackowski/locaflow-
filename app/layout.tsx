@@ -1,4 +1,4 @@
-import "@/css/style.css";
+import "../css/style.css"; // ✅ Chemin correct relatif depuis app/layout.tsx
 
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
@@ -15,7 +15,7 @@ const inter = Inter({
 const nacelle = localFont({
   src: [
     {
-      path: "/fonts/nacelle-regular.woff2",
+      path: "/fonts/nacelle-regular.woff2", // ✅ Chemin depuis dossier public
       weight: "400",
       style: "normal",
     },
