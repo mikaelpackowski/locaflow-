@@ -39,9 +39,9 @@ export default function Features() {
                 Advanced Controls
               </span>
             </div>
-            <h2 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
-              Built for modern product teams
-            </h2>
+           <h2 className="text-3xl md:text-4xl font-extrabold animate-[gradient_8s_linear_infinite] bg-[linear-gradient(to_right,#4f46e5,#8b5cf6,#ec4899,#4f46e5)] bg-[length:200%_auto] bg-clip-text text-transparent">
+  Pensé pour les propriétaires modernes
+</h2>
             <p className="text-lg text-indigo-200/65">
               Open AI reads and understands your files, and with nothing more
               than a single line of feedback, so you can go further than the
@@ -72,13 +72,12 @@ export default function Features() {
                   d="m16.295 5.393 7.528 2.034-4.436 16.412L5.87 20.185l.522-1.93 11.585 3.132 3.392-12.55-5.597-1.514.522-1.93Z"
                 />
               </svg>
-              <h3 className="mb-1 font-nacelle text-[1rem] font-semibold text-gray-200">
-                Project Milestones
-              </h3>
-              <p className="text-indigo-200/65">
-                Track progress across custom flows for your team. Find the right
-                balance for the user, privacy and security.
-              </p>
+              <h3 className="mb-1 text-[1rem] font-semibold animate-[gradient_8s_linear_infinite] bg-[linear-gradient(to_right,#4f46e5,#8b5cf6,#ec4899,#4f46e5)] bg-clip-text text-transparent">
+  Suivi des projets
+</h3>
+             <p className="text-gray-600">
+  Gérez les étapes de location, les échanges avec les locataires et les actions de maintenance sans stress.
+</p>
             </article>
             <article>
               <svg
