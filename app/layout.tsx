@@ -1,11 +1,10 @@
-import "@/css/style.css"; // ✅ Corrigé
+import "@/css/style.css";
 
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
-import { ReactNode } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,22 +15,22 @@ const inter = Inter({
 const nacelle = localFont({
   src: [
     {
-      path: "./fonts/nacelle-regular.woff2",
+      path: "/fonts/nacelle-regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./fonts/nacelle-italic.woff2",
+      path: "/fonts/nacelle-italic.woff2",
       weight: "400",
       style: "italic",
     },
     {
-      path: "./fonts/nacelle-semibold.woff2",
+      path: "/fonts/nacelle-semibold.woff2",
       weight: "600",
       style: "normal",
     },
     {
-      path: "./fonts/nacelle-semibolditalic.woff2",
+      path: "/fonts/nacelle-semibolditalic.woff2",
       weight: "600",
       style: "italic",
     },
@@ -45,14 +44,16 @@ export const metadata = {
   description: "Plateforme intelligente pour propriétaires, locataires et agences.",
 };
 
-interface RootLayoutProps {
-  children: ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="fr">
-      <body className={`${inter.variable} ${nacelle.variable} bg-white font-inter text-base text-gray-900 antialiased`}>
+      <body
+        className={`${inter.variable} ${nacelle.variable} bg-white font-inter text-base text-gray-900 antialiased`}
+      >
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
           <Header />
           {children}
