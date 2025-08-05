@@ -1,16 +1,16 @@
 "use client";
 
-import { useEffect } from "react";
-
+import { useEffect, ReactNode } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
 import Footer from "@/components/ui/footer";
+import Header from "@/components/ui/header"; // Si tu veux aussi le header ici
 
-export default function DefaultLayout({
+export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
 }) {
   useEffect(() => {
     AOS.init({
@@ -19,13 +19,13 @@ export default function DefaultLayout({
       duration: 600,
       easing: "ease-out-sine",
     });
-  });
+  }, []);
 
   return (
-    <>
- <main className="relative flex grow flex-col bg-white text-gray-900">
-       {children}
- </main>
-    </>
+    <main className="relative flex grow flex-col bg-white text-gray-900">
+      <Header />
+      {children}
+      <Footer />
+    </main>
   );
 }
