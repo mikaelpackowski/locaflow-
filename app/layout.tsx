@@ -1,11 +1,11 @@
-import "../css/style.css"; // Corrigé : chemin relatif correct
+import "@/css/style.css"; // ✅ Corrigé
 
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import Header from "@/components/ui/header";
 import Footer from "@/components/ui/footer";
-import { ReactNode } from "react"; // Corrigé : ReactNode importé ici
+import { ReactNode } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,22 +16,22 @@ const inter = Inter({
 const nacelle = localFont({
   src: [
     {
-      path: "/fonts/nacelle-regular.woff2", // ✅ avec slash
+      path: "./fonts/nacelle-regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "/fonts/nacelle-italic.woff2",
+      path: "./fonts/nacelle-italic.woff2",
       weight: "400",
       style: "italic",
     },
     {
-      path: "/fonts/nacelle-semibold.woff2",
+      path: "./fonts/nacelle-semibold.woff2",
       weight: "600",
       style: "normal",
     },
     {
-      path: "/fonts/nacelle-semibolditalic.woff2",
+      path: "./fonts/nacelle-semibolditalic.woff2",
       weight: "600",
       style: "italic",
     },
