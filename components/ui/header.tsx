@@ -1,39 +1,92 @@
 "use client";
 
 import Link from "next/link";
-import Logo from "./logo";
+import { useState } from "react";
 
-export default function Header() {
+export default function Layout({ children }: { children: React.ReactNode }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <header className="z-30 mt-2 w-full md:mt-5">
-      <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="relative flex h-14 items-center justify-between gap-3 rounded-2xl bg-gray-900/90 px-3 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] after:absolute after:inset-0 after:-z-10 after:backdrop-blur-xs">
-          {/* Site branding */}
-          <div className="flex flex-1 items-center">
-            <Logo />
-          </div>
+    <div className="min-h-screen bg-white text-gray-800">
+      {/* Fixed Navbar */}
+      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900 text-white shadow-md">
+        <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
+          <Link href="/">
+            <span className="text-xl font-bold">LocaFlow</span>
+          </Link>
 
-          {/* Desktop sign in links */}
-          <ul className="flex flex-1 items-center justify-end gap-3">
-            <li>
-              <Link
-                href="/signin"
-                className="btn-sm relative bg-linear-to-b from-gray-800 to-gray-800/60 bg-[length:100%_100%] bg-[bottom] py-[5px] text-gray-300 before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_right,var(--color-gray-800),var(--color-gray-700),var(--color-gray-800))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-[length:100%_150%]"
-              >
-                Sign In
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/signup"
-                className="btn-sm bg-linear-to-t from-indigo-600 to-indigo-500 bg-[length:100%_100%] bg-[bottom] py-[5px] text-white shadow-[inset_0px_1px_0px_0px_--theme(--color-white/.16)] hover:bg-[length:100%_150%]"
-              >
-                Register
-              </Link>
-            </li>
-          </ul>
+          {/* Desktop Menu */}
+          <nav className="hidden md:flex space-x-6 items-center">
+            <Link href="#" className="flex items-center gap-1 hover:text-indigo-400">
+              🧑‍💼 <span>Propriétaires</span>
+            </Link>
+            <Link href="#" className="flex items-center gap-1 hover:text-indigo-400">
+              👥 <span>Locataires</span>
+            </Link>
+            <Link href="#" className="flex items-center gap-1 hover:text-indigo-400">
+              ❓ <span>FAQ</span>
+            </Link>
+            <Link href="#" className="flex items-center gap-1 hover:text-indigo-400">
+              ✉️ <span>Contact</span>
+            </Link>
+            <Link href="#" className="ml-4 px-4 py-1 rounded bg-gray-800 hover:bg-gray-700">
+              Connexion
+            </Link>
+            <Link href="#" className="ml-2 px-4 py-1 rounded bg-indigo-600 hover:bg-indigo-500">
+              Créer un compte
+            </Link>
+          </nav>
+
+          {/* Burger icon for mobile */}
+          <button
+            className="md:hidden focus:outline-none"
+            onClick={() => setMenuOpen(!menuOpen)}
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
         </div>
-      </div>
-    </header>
+
+        {/* Mobile Menu */}
+        {menuOpen && (
+          <nav className="md:hidden bg-gray-800 px-4 pb-4 space-y-2">
+            <Link href="#" className="block py-1 flex items-center gap-2 hover:text-indigo-400">
+              🧑‍💼 Propriétaires
+            </Link>
+            <Link href="#" className="block py-1 flex items-center gap-2 hover:text-indigo-400">
+              👥 Locataires
+            </Link>
+            <Link href="#" className="block py-1 flex items-center gap-2 hover:text-indigo-400">
+              ❓ FAQ
+            </Link>
+            <Link href="#" className="block py-1 flex items-center gap-2 hover:text-indigo-400">
+              ✉️ Contact
+            </Link>
+            <div className="flex flex-col gap-2 pt-2">
+              <Link href="#" className="px-4 py-2 rounded bg-gray-700 hover:bg-gray-600 text-center">
+                Connexion
+              </Link>
+              <Link href="#" className="px-4 py-2 rounded bg-indigo-600 hover:bg-indigo-500 text-center">
+                Créer un compte
+              </Link>
+            </div>
+          </nav>
+        )}
+      </header>
+
+      <main className="pt-24">{children}</main>
+    </div>
   );
 }
