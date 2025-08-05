@@ -20,7 +20,7 @@ export default function Cta() {
         <div className="bg-white border border-gray-200 rounded-3xl py-12 md:py-20 shadow-xl">
           <div className="mx-auto max-w-3xl text-center">
 
-            {/* Nouveau titre */}
+            {/* Titre animé */}
             <h2
               className="text-3xl md:text-4xl font-extrabold animate-[gradient_8s_linear_infinite] bg-[linear-gradient(to_right,#4f46e5,#8b5cf6,#ec4899,#4f46e5)] bg-[length:200%_auto] bg-clip-text text-transparent mb-6"
               data-aos="fade-up"
@@ -28,20 +28,24 @@ export default function Cta() {
               Prêt à simplifier votre gestion locative ?
             </h2>
 
-            {/* Sous-titre (optionnel) */}
+            {/* Sous-titre */}
             <p className="text-gray-600 mb-8 text-lg" data-aos="fade-up" data-aos-delay={200}>
               Rejoignez LocaFlow et automatisez vos démarches en quelques clics.
             </p>
 
-            {/* Bouton principal */}
-            <div className="flex justify-center">
+            {/* Deux boutons */}
+            <div className="flex flex-col sm:flex-row justify-center gap-4" data-aos="fade-up" data-aos-delay={400}>
               <a
-                className="inline-block rounded-lg bg-indigo-600 px-6 py-3 text-white font-semibold hover:bg-indigo-500 transition-colors duration-200"
-                href="#"
-                data-aos="fade-up"
-                data-aos-delay={400}
+                className="inline-block rounded-lg bg-indigo-600 px-6 py-3 text-white font-semibold hover:bg-indigo-500 transition-colors duration-200 text-center"
+                href="/deposer"
               >
-                Créer un compte gratuitement
+                Déposer un bien
+              </a>
+              <a
+                className="inline-block rounded-lg border border-indigo-600 px-6 py-3 text-indigo-600 font-semibold hover:bg-indigo-50 transition-colors duration-200 text-center"
+                href="/dashboard"
+              >
+                Accéder à mon espace
               </a>
             </div>
 
