@@ -1,4 +1,4 @@
-import "../app/css/additional-styles/style.css"; // ✅ Corrigé
+import "./app/css/style.css"; // ✅ Corrigé
 
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
@@ -15,22 +15,22 @@ const inter = Inter({
 const nacelle = localFont({
   src: [
     {
-      path: "./public/fonts/nacelle-regular.woff2",
+      path: "/public/fonts/nacelle-regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "./public/fonts/nacelle-italic.woff2",
+      path: "/public/fonts/nacelle-italic.woff2",
       weight: "400",
       style: "italic",
     },
     {
-      path: "./public/fonts/nacelle-semibold.woff2",
+      path: "/public/fonts/nacelle-semibold.woff2",
       weight: "600",
       style: "normal",
     },
     {
-      path: "./public/fonts/nacelle-semibolditalic.woff2",
+      path: "/public/fonts/nacelle-semibolditalic.woff2",
       weight: "600",
       style: "italic",
     },
