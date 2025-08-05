@@ -2,10 +2,10 @@ import "./css/style.css";
 
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
-import { ReactNode } from "react"; // ✅ Import manquant
+import { ReactNode } from "react"; // ✅ Bien importer ReactNode
 
 import Header from "@/components/ui/header";
-import Footer from "@/components/ui/footer"; // ✅ Footer conservé
+import Footer from "@/components/ui/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -45,8 +45,12 @@ export const metadata = {
   description: "Plateforme intelligente pour propriétaires, locataires et agences.",
 };
 
-// ✅ Définition correcte du type des props
-export default function RootLayout({ children }: { children: ReactNode }) {
+// ✅ Interface explicite des props
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="fr">
       <body className={`${inter.variable} ${nacelle.variable} bg-white font-inter text-base text-gray-900 antialiased`}>
