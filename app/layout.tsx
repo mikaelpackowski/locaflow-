@@ -55,9 +55,9 @@ export default function RootLayout({
         className={`${inter.variable} ${nacelle.variable} bg-white font-inter text-base text-gray-900 antialiased`}
       >
         <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
-          <Header />
-          <main className="grow">{children}</main>
-          <Footer /> {/* ✅ Ajout du footer ici */}
+<Header />
+{children}
+<Footer /> {/* ✅ Conserver uniquement celui-ci */}
         </div>
       </body>
     </html>
