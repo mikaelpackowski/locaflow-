@@ -1,11 +1,7 @@
 import "./css/style.css";
-
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
-import { ReactNode } from "react"; // ✅ Bien importer ReactNode
-
-import Header from "@/components/ui/header";
-import Footer from "@/components/ui/footer";
+import { ReactNode } from "react";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -16,22 +12,22 @@ const inter = Inter({
 const nacelle = localFont({
   src: [
     {
-      path: "../public/fonts/nacelle-regular.woff2",
+      path: "./public/fonts/nacelle-regular.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../public/fonts/nacelle-italic.woff2",
+      path: "./public/fonts/nacelle-italic.woff2",
       weight: "400",
       style: "italic",
     },
     {
-      path: "../public/fonts/nacelle-semibold.woff2",
+      path: "./public/fonts/nacelle-semibold.woff2",
       weight: "600",
       style: "normal",
     },
     {
-      path: "../public/fonts/nacelle-semibolditalic.woff2",
+      path: "./public/fonts/nacelle-semibolditalic.woff2",
       weight: "600",
       style: "italic",
     },
@@ -45,20 +41,13 @@ export const metadata = {
   description: "Plateforme intelligente pour propriétaires, locataires et agences.",
 };
 
-// ✅ Interface explicite des props
-interface RootLayoutProps {
-  children: ReactNode;
-}
-
-export default function RootLayout({ children }: RootLayoutProps) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      <body className={`${inter.variable} ${nacelle.variable} bg-white font-inter text-base text-gray-900 antialiased`}>
-        <div className="flex min-h-screen flex-col overflow-hidden supports-[overflow:clip]:overflow-clip">
-          <Header />
-          {children}
-          <Footer />
-        </div>
+      <body
+        className={`${inter.variable} ${nacelle.variable} bg-white font-inter text-base text-gray-900 antialiased`}
+      >
+        {children}
       </body>
     </html>
   );
