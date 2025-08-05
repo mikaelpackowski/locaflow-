@@ -1,4 +1,4 @@
-import "./app/css/style.css"; // ✅ Corrigé
+import "/app/css/style.css"; // ✅ Corrigé
 
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
