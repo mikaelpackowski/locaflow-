@@ -2,10 +2,10 @@ import "./css/style.css";
 
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
-import { ReactNode } from "react";
+import { ReactNode } from "react"; // ✅ Import manquant
 
 import Header from "@/components/ui/header";
-import Footer from "@/components/ui/footer";
+import Footer from "@/components/ui/footer"; // ✅ Footer conservé
 
 const inter = Inter({
   subsets: ["latin"],
@@ -15,10 +15,26 @@ const inter = Inter({
 
 const nacelle = localFont({
   src: [
-    { path: "../public/fonts/nacelle-regular.woff2", weight: "400", style: "normal" },
-    { path: "../public/fonts/nacelle-italic.woff2", weight: "400", style: "italic" },
-    { path: "../public/fonts/nacelle-semibold.woff2", weight: "600", style: "normal" },
-    { path: "../public/fonts/nacelle-semibolditalic.woff2", weight: "600", style: "italic" },
+    {
+      path: "../public/fonts/nacelle-regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/nacelle-italic.woff2",
+      weight: "400",
+      style: "italic",
+    },
+    {
+      path: "../public/fonts/nacelle-semibold.woff2",
+      weight: "600",
+      style: "normal",
+    },
+    {
+      path: "../public/fonts/nacelle-semibolditalic.woff2",
+      weight: "600",
+      style: "italic",
+    },
   ],
   variable: "--font-nacelle",
   display: "swap",
@@ -29,6 +45,7 @@ export const metadata = {
   description: "Plateforme intelligente pour propriétaires, locataires et agences.",
 };
 
+// ✅ Définition correcte du type des props
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
