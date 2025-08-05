@@ -1,92 +1,56 @@
 "use client";
 
-import Link from "next/link";
-import { useState } from "react";
+import { useEffect } from "react";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import Footer from "@/components/ui/footer";
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  const [menuOpen, setMenuOpen] = useState(false);
+export default function DefaultLayout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    AOS.init({
+      once: true,
+      disable: "phone",
+      duration: 600,
+      easing: "ease-out-sine",
+    });
+  }, []);
 
   return (
-    <div className="min-h-screen bg-white text-gray-800">
-      {/* Fixed Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900 text-white shadow-md">
-        <div className="max-w-7xl mx-auto flex items-center justify-between p-4">
-          <Link href="/">
-            <span className="text-xl font-bold">LocaFlow</span>
-          </Link>
-
-          {/* Desktop Menu */}
-          <nav className="hidden md:flex space-x-6 items-center">
-            <Link href="#" className="flex items-center gap-1 hover:text-indigo-400">
-              🧑‍💼 <span>Propriétaires</span>
-            </Link>
-            <Link href="#" className="flex items-center gap-1 hover:text-indigo-400">
-              👥 <span>Locataires</span>
-            </Link>
-            <Link href="#" className="flex items-center gap-1 hover:text-indigo-400">
-              ❓ <span>FAQ</span>
-            </Link>
-            <Link href="#" className="flex items-center gap-1 hover:text-indigo-400">
-              ✉️ <span>Contact</span>
-            </Link>
-            <Link href="#" className="ml-4 px-4 py-1 rounded bg-gray-800 hover:bg-gray-700">
-              Connexion
-            </Link>
-            <Link href="#" className="ml-2 px-4 py-1 rounded bg-indigo-600 hover:bg-indigo-500">
-              Créer un compte
-            </Link>
-          </nav>
-
-          {/* Burger icon for mobile */}
-          <button
-            className="md:hidden focus:outline-none"
-            onClick={() => setMenuOpen(!menuOpen)}
-          >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-        </div>
-
-        {/* Mobile Menu */}
-        {menuOpen && (
-          <nav className="md:hidden bg-gray-800 px-4 pb-4 space-y-2">
-            <Link href="#" className="block py-1 flex items-center gap-2 hover:text-indigo-400">
-              🧑‍💼 Propriétaires
-            </Link>
-            <Link href="#" className="block py-1 flex items-center gap-2 hover:text-indigo-400">
-              👥 Locataires
-            </Link>
-            <Link href="#" className="block py-1 flex items-center gap-2 hover:text-indigo-400">
-              ❓ FAQ
-            </Link>
-            <Link href="#" className="block py-1 flex items-center gap-2 hover:text-indigo-400">
-              ✉️ Contact
-            </Link>
-            <div className="flex flex-col gap-2 pt-2">
-              <Link href="#" className="px-4 py-2 rounded bg-gray-700 hover:bg-gray-600 text-center">
-                Connexion
-              </Link>
-              <Link href="#" className="px-4 py-2 rounded bg-indigo-600 hover:bg-indigo-500 text-center">
-                Créer un compte
-              </Link>
+    <>
+      <main className="relative flex grow flex-col bg-white text-gray-900">
+        <section className="pt-20 pb-12 md:pt-40 md:pb-20">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+            <div className="max-w-3xl mx-auto">
+              <h1 className="text-5xl font-extrabold leading-tight tracking-tighter mb-4">
+                Bienvenue sur <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">LocaFlow</span>
+              </h1>
+              <p className="text-xl text-gray-600 mb-8">Simplifiez la gestion locative : dépôt de bien, recherche de logement, automatisation des démarches.</p>
+              <div className="flex justify-center space-x-4">
+                <button className="bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2 px-4 rounded">
+                  Propriétaire
+                </button>
+                <button className="bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2 px-4 rounded">
+                  Locataire
+                </button>
+              </div>
             </div>
-          </nav>
-        )}
-      </header>
-
-      <main className="pt-24">{children}</main>
-    </div>
+            <div className="mt-12">
+              <video
+                className="w-full max-w-4xl mx-auto rounded-xl shadow-lg"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source src="/videos/real-estate-demo.mp4" type="video/mp4" />
+                Votre navigateur ne supporte pas la lecture de vidéo.
+              </video>
+            </div>
+          </div>
+        </section>
+        {children}
+      </main>
+      <Footer />
+    </>
   );
 }
