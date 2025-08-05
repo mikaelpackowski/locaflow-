@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import Header from "@/components/ui/header";
-import Footer from "@/components/footer"; // ✅ Import du footer
+import Footer from "@/components/ui/footer"; // ✅ Import du footer
 
 const inter = Inter({
   subsets: ["latin"],
